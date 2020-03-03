@@ -4,7 +4,7 @@ import java.time.ZonedDateTime
 import java.util.TimeZone
 
 case class Entry(text: String,
-                 tags: Array[String],
+                 tags: List[String],
                  timeZone: TimeZone,
                  creationDate: ZonedDateTime,
                  modifiedDate: ZonedDateTime,
