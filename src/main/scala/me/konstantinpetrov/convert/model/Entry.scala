@@ -1,4 +1,4 @@
-package convert.model
+package me.konstantinpetrov.convert.model
 
 import java.time.ZonedDateTime
 import java.util.TimeZone

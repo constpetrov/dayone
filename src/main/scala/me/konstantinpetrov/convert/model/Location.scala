@@ -1,4 +1,4 @@
-package convert.model
+package me.konstantinpetrov.convert.model
 
 case class Location(region: Region,
                     localityName: String,

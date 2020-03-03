@@ -1,4 +1,4 @@
-package convert
+package me.konstantinpetrov.convert
 
 /**
  * @author ${user.name}
