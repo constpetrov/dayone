@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "version": "1.0"
+  },
+  "entries": [
+    {
+      "creationOSVersion": "10.14.6",
+      "uuid": "5B78D57417A84B348EEC5E5B6BA05718",
+      "editingTime": 0,
+      "text": "Тестовая запись, не очень длинная, без специальных символов.",
+      "modifiedDate": "2020-01-13T08:53:06Z",
+      "starred": false,
+      "creationDevice": "laptop-kpetrov",
+      "creationDeviceModel": "MacBookPro11,5",
+      "creationDeviceType": "MacBook Pro",
+      "creationOSName": "macOS",
+      "timeZone": "Europe\/Amsterdam",
+      "duration": 0,
+      "creationDate": "2016-01-09T21:11:00Z"
+    },
+    {
+      "text": "Тестовая запись номер 2, не длинная, без специальных символов.",
+      "creationDeviceType": "MacBook Pro",
+      "creationDeviceModel": "MacBookPro11,5",
+      "editingTime": 0,
+      "starred": false,
+      "creationDate": "2016-01-10T19:16:00Z",
+      "modifiedDate": "2020-01-13T08:53:06Z",
+      "creationOSName": "macOS",
+      "creationOSVersion": "10.14.6",
+      "timeZone": "Europe\/Amsterdam",
+      "uuid": "CC2AEEEB1C394DF0BF51AAADA511CA25",
+      "creationDevice": "laptop-kpetrov",
+      "duration": 0
+    }
+  ]
+}
