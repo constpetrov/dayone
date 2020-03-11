@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "version": "1.0"
+  },
+  "entries": [
+    {
+      "creationOSVersion": "10.14.6",
+      "uuid": "F448F613E4994A62847BA721A885B102",
+      "modifiedDate": "2020-01-13T08:53:06Z",
+      "creationDate": "2016-08-16T15:09:00Z",
+      "creationDeviceModel": "MacBookPro11,5",
+      "creationOSName": "macOS",
+      "text": "Заглавие\nПервая строка\n\n---\nЧасть отсутствует.\n\nЕще строка.\n\nПоследняя строка.",
+      "editingTime": 0,
+      "timeZone": "Europe\/Amsterdam",
+      "creationDevice": "laptop-kpetrov",
+      "creationDeviceType": "MacBook Pro",
+      "starred": false,
+      "duration": 0
+    }
+  ]
+}
