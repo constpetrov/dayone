@@ -1,6 +1,7 @@
 package me.konstantinpetrov.convert
 
 import java.io.File
+import java.time.{ZoneId, ZonedDateTime}
 
 import org.scalatest.FunSpec
 
@@ -11,11 +12,11 @@ class JsonParserTest extends FunSpec {
     it("should read and parse file") {
       val subject = new JsonParser()
       val result = subject.parse(new File("src/test/resources/simple.json"))
-      print(result)
-      //todo add assertions and checks
+      assert(result.size == 2)
+      assert(result.forall(e => e.tags.isEmpty))
+      assert(result.forall(e => e.creationDate.isBefore(ZonedDateTime.of(2016, 1, 11, 0, 0, 0, 0, ZoneId.of("CET")))))
     }
 
   }
-
 
 }
