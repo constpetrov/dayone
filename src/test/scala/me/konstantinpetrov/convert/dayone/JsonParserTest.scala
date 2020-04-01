@@ -1,4 +1,4 @@
-package me.konstantinpetrov.convert
+package me.konstantinpetrov.convert.dayone
 
 import java.io.File
 import java.time.{ZoneId, ZonedDateTime}

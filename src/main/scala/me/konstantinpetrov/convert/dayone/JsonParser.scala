@@ -1,10 +1,10 @@
-package me.konstantinpetrov.convert
+package me.konstantinpetrov.convert.dayone
 
 import java.io.File
 import java.time.ZonedDateTime
 import java.util.TimeZone
 
-import me.konstantinpetrov.convert.model.{Coordinates, Entry, Location, Region, Weather}
+import me.konstantinpetrov.convert.model._
 import upickle.default
 
 class JsonParser {
