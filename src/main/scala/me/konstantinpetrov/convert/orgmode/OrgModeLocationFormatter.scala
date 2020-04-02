@@ -1,5 +1,27 @@
 package me.konstantinpetrov.convert.orgmode
 
-class OrgModeLocationFormatter {
+import me.konstantinpetrov.convert.model.LocationField._
+import me.konstantinpetrov.convert.model.{Entry, Location}
+
+class OrgModeLocationFormatter(prefix: String, order: List[LocationField], itemSeparator: String = ", ") {
+
+  def formatLocation(location: Location): String = {
+    order.map {
+      case AREA => location.administrativeArea
+      case COUNTRY => location.country
+      case PLACE => location.placeName
+      case LOCALITY => location.localityName
+      case LATITUDE => s"latitude: ${location.region.center.latitude}"
+      case LONGITUDE => s"longitude: ${location.region.center.longitude}"
+      case RADIUS => s"radius: ${location.region.radius}"
+    }.mkString(prefix, itemSeparator, "")
+  }
+
+  def format(entry: Entry): String = {
+    entry.location match {
+      case None => "Location unknown"
+      case Some(location) => formatLocation(location)
+    }
+  }
 
 }
