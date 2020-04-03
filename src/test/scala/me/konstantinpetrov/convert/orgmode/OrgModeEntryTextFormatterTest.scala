@@ -23,7 +23,8 @@ class OrgModeEntryTextFormatterTest extends FunSpec {
           |testing,
           |everything
           |seems to be in
-          |order.""".stripMargin)
+          |order.
+          |""".stripMargin)
     }
 
     it("should wrap text close to the desired width preserving words, adding tags") {
@@ -38,7 +39,8 @@ class OrgModeEntryTextFormatterTest extends FunSpec {
         """**** One swan on :tag_1:tag_2:
           |the bridge, testing, testing,
           |everything seems to be in
-          |order.""".stripMargin)
+          |order.
+          |""".stripMargin)
     }
   }
 }
