@@ -11,12 +11,12 @@ private class OrgModeLocationFormatterTest extends FunSpec {
   describe("OrgModeLocationFormatter") {
     it("should format location to a human readable form") {
       val testLocation = Location(
-        localityName = "Locality name",
-        administrativeArea = "Administrative area",
-        country = "Country",
-        placeName = "Place name",
-        latitude = 10.0,
-        longitude = 20.0)
+        localityName = Some("Locality name"),
+        administrativeArea = Some("Administrative area"),
+        country = Some("Country"),
+        placeName = Some("Place name"),
+        latitude = Some(10.0),
+        longitude = Some(20.0))
 
       val subject = new OrgModeLocationFormatter("Taken at ", List(COUNTRY, PLACE))
       val result = subject.format(Entry(

@@ -8,12 +8,12 @@ class OrgModeLocationFormatter(prefix: String = "  Taken at ", order: List[Locat
 
   private def formatLocation(location: Location): String = {
     order.map {
-      case AREA => location.administrativeArea
-      case COUNTRY => location.country
-      case PLACE => location.placeName
-      case LOCALITY => location.localityName
-      case LATITUDE => s"latitude: ${location.latitude}"
-      case LONGITUDE => s"longitude: ${location.longitude}"
+      case AREA => location.administrativeArea.getOrElse("Unknown")
+      case COUNTRY => location.country.getOrElse("Unknown")
+      case PLACE => location.placeName.getOrElse("Unknown")
+      case LOCALITY => location.localityName.getOrElse("Unknown")
+      case LATITUDE => s"latitude: ${location.latitude.getOrElse("Unknown")}"
+      case LONGITUDE => s"longitude: ${location.longitude.getOrElse("Unknown")}"
     }.mkString(prefix, itemSeparator, "\n")
   }
 
