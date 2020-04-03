@@ -4,7 +4,7 @@ import java.time.{ZoneId, ZonedDateTime}
 import java.util.TimeZone
 
 import me.konstantinpetrov.convert.model.LocationField._
-import me.konstantinpetrov.convert.model.{Coordinates, Entry, Location, Region}
+import me.konstantinpetrov.convert.model.{Entry, Location}
 import org.scalatest.FunSpec
 
 private class OrgModeLocationFormatterTest extends FunSpec {
@@ -15,7 +15,8 @@ private class OrgModeLocationFormatterTest extends FunSpec {
         administrativeArea = "Administrative area",
         country = "Country",
         placeName = "Place name",
-        region = Region(Coordinates(latitude = 10.0d, longitude = 20.0d), 5.0d))
+        latitude = 10.0,
+        longitude = 20.0)
 
       val subject = new OrgModeLocationFormatter("Taken at ", List(COUNTRY, PLACE))
       val result = subject.format(Entry(

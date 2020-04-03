@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "version": "1.0"
+  },
+  "entries": [
+    {
+      "location" : {
+        "localityName" : "Almere",
+        "country" : "Netherlands",
+        "longitude" : 5.1908788681030273,
+        "administrativeArea" : "Flevoland",
+        "placeName" : "3 Rimsky-Korssakovweg",
+        "latitude" : 52.366722106933594
+      },
+      "creationDate": "2019-08-25T15:48:26Z",
+      "modifiedDate": "2019-08-25T15:48:26Z",
+      "text": "testing",
+      "timeZone": "Europe\/Amsterdam"
+    }
+  ]
+}

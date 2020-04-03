@@ -5,27 +5,48 @@ import java.time.ZonedDateTime
 import java.util.TimeZone
 
 import me.konstantinpetrov.convert.model._
-import upickle.default
+import spray.json._
 
 class JsonParser {
 
   def parse(inputFile: File): List[Entry] = {
-    implicit val timeZoneRW: default.ReadWriter[TimeZone] = upickle.default.readwriter[String].bimap[TimeZone](
-      x => x.getDisplayName,
-      str => TimeZone.getTimeZone(str)
-    )
-    implicit val zonedDateTimeRW: default.ReadWriter[ZonedDateTime] = upickle.default.readwriter[String].bimap[ZonedDateTime](
-      x => x.toString,
-      str => ZonedDateTime.parse(str)
-    )
-    implicit val coordinatesRW: default.ReadWriter[Coordinates] = upickle.default.macroRW[Coordinates]
-    implicit val regionRW: default.ReadWriter[Region] = upickle.default.macroRW[Region]
-    implicit val locationRW: default.ReadWriter[Location] = upickle.default.macroRW[Location]
-    implicit val weatherRW: default.ReadWriter[Weather] = upickle.default.macroRW[Weather]
-    implicit val entryRW: default.ReadWriter[Entry] = upickle.default.macroRW[Entry]
-    val jsonString: String = os.read(os.Path(inputFile.getAbsolutePath))
-    val data = ujson.read(jsonString)
-    default.read[List[Entry]](data("entries"))
+    def deserializationError(str: String): Nothing = {
+      throw new Exception(str)
+    }
+
+    implicit object TimeZoneFormat extends JsonFormat[TimeZone] {
+      def write(m: TimeZone): JsString = JsString(s"${m.toString}")
+
+      def read(json: JsValue): TimeZone = json match {
+        case JsString(c) => TimeZone.getTimeZone(c)
+        case _ => deserializationError("String expected")
+      }
+    }
+
+    implicit object ZonedDateTimeFormat extends JsonFormat[ZonedDateTime] {
+      def write(m: ZonedDateTime): JsString = JsString(s"${m.toString}")
+
+      def read(json: JsValue): ZonedDateTime = json match {
+        case JsString(c) => ZonedDateTime.parse(c)
+        case _ => deserializationError("String expected")
+      }
+    }
+
+    object MyJsonProtocol extends DefaultJsonProtocol {
+      implicit val locationFormat: RootJsonFormat[Location] = jsonFormat6(Location)
+      implicit val weatherFormat: RootJsonFormat[Weather] = jsonFormat10(Weather)
+      implicit val entryFormat: RootJsonFormat[Entry] = jsonFormat7(Entry)
+      implicit val metaFormat: RootJsonFormat[Meta] = jsonFormat1(Meta)
+      implicit val mainFormat: RootJsonFormat[MainModel] = jsonFormat2(MainModel)
+    }
+
+
+    import MyJsonProtocol._
+    val source = scala.io.Source.fromFile(inputFile)
+    val jsonString = try source.mkString finally source.close()
+
+    val data = jsonString.parseJson
+    data.convertTo[MainModel].entries
   }
 
 }

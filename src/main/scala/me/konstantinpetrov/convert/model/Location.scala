@@ -1,7 +1,8 @@
 package me.konstantinpetrov.convert.model
 
-case class Location(region: Region,
-                    localityName: String,
+case class Location(localityName: String,
                     country: String,
                     administrativeArea: String,
-                    placeName: String)
+                    placeName: String,
+                    longitude: Double,
+                    latitude: Double)

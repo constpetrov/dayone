@@ -12,9 +12,8 @@ class OrgModeLocationFormatter(prefix: String = "  Taken at ", order: List[Locat
       case COUNTRY => location.country
       case PLACE => location.placeName
       case LOCALITY => location.localityName
-      case LATITUDE => s"latitude: ${location.region.center.latitude}"
-      case LONGITUDE => s"longitude: ${location.region.center.longitude}"
-      case RADIUS => s"radius: ${location.region.radius}"
+      case LATITUDE => s"latitude: ${location.latitude}"
+      case LONGITUDE => s"longitude: ${location.longitude}"
     }.mkString(prefix, itemSeparator, "\n")
   }
 

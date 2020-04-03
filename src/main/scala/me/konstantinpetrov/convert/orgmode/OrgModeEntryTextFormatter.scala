@@ -49,9 +49,12 @@ class OrgModeEntryTextFormatter(level: Int = 4,
   }
 
   private def formatTags(entry: Entry): String = {
-    entry.tags.size match {
-      case 0 => ""
-      case _ => entry.tags.mkString(" :", ":", ":")
+    entry.tags match {
+      case None => ""
+      case Some(tags) => tags.size match {
+        case 0 => ""
+        case _ => tags.mkString(" :", ":", ":")
+      }
     }
   }
 

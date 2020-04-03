@@ -38,7 +38,8 @@ class OrgModeWriterTest extends FunSpec {
 
       assert(file.exists())
 
-      val contents: String = os.read(os.Path(file.getAbsolutePath))
+      val source = scala.io.Source.fromFile(file)
+      val contents = try source.mkString finally source.close()
       assert(contents ==
         """* 2020
           |** 2020-02 February

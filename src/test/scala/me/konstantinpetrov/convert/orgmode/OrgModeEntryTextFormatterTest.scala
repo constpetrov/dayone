@@ -33,7 +33,7 @@ class OrgModeEntryTextFormatterTest extends FunSpec {
         creationDate = ZonedDateTime.now,
         modifiedDate = ZonedDateTime.now,
         timeZone = TimeZone.getTimeZone(ZoneId.systemDefault()),
-        tags = List("tag_1", "tag_2"))
+        tags = Some(List("tag_1", "tag_2")))
       val result = subject.format(testEntry)
       assert(result ==
         """**** One swan on :tag_1:tag_2:
