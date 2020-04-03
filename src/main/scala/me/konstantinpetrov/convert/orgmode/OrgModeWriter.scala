@@ -37,6 +37,7 @@ class OrgModeWriter(options: List[OrgModeField]) {
         val piece = formatter.format(entry)
         writer.write(headerLines)
         writer.write(piece)
+        writer.write("\n")
         previousDate = entry.creationDate
       })
       writer.close()

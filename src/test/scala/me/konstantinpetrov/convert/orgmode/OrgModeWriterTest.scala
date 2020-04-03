@@ -45,13 +45,16 @@ class OrgModeWriterTest extends FunSpec {
           |*** 2020-02-01 Saturday
           |**** First entry
           |  Entered on [2020-02-01 Sat 15:33]
+          |
           |*** 2020-02-03 Monday
           |**** Second entry
           |  Entered on [2020-02-03 Mon 15:33]
+          |
           |** 2020-03 March
           |*** 2020-03-03 Tuesday
           |**** Third entry
           |  Entered on [2020-03-03 Tue 15:33]
+          |
           |""".stripMargin)
     }
   }
