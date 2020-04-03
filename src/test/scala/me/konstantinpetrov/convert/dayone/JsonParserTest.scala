@@ -13,7 +13,7 @@ class JsonParserTest extends FunSpec {
       val subject = new JsonParser()
       val result = subject.parse(new File("src/test/resources/simple.json"))
       assert(result.size == 2)
-      assert(result.forall(e => e.tags.isEmpty))
+      assert(result.head.tags.length == 2)
       assert(result.forall(e => e.creationDate.isBefore(ZonedDateTime.of(2016, 1, 11, 0, 0, 0, 0, ZoneId.of("CET")))))
     }
 

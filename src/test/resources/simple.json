@@ -16,7 +16,11 @@
       "creationOSName": "macOS",
       "timeZone": "Europe\/Amsterdam",
       "duration": 0,
-      "creationDate": "2016-01-09T21:11:00Z"
+      "creationDate": "2016-01-09T21:11:00Z",
+      "tags": [
+        "tag_1",
+        "tag_2"
+      ]
     },
     {
       "text": "Тестовая запись номер 2, не длинная, без специальных символов.",
