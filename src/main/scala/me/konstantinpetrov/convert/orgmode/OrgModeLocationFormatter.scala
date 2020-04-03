@@ -6,7 +6,7 @@ import me.konstantinpetrov.convert.model.{Entry, Location}
 class OrgModeLocationFormatter(prefix: String, order: List[LocationField],
                                itemSeparator: String = ", ", writeUnknowns: Boolean = false) {
 
-  def formatLocation(location: Location): String = {
+  private def formatLocation(location: Location): String = {
     order.map {
       case AREA => location.administrativeArea
       case COUNTRY => location.country
@@ -18,7 +18,7 @@ class OrgModeLocationFormatter(prefix: String, order: List[LocationField],
     }.mkString(prefix, itemSeparator, "\n")
   }
 
-  def unknownLocation(): String = {
+  private def unknownLocation(): String = {
     if (writeUnknowns) {
       s"${prefix}unknown location\n"
     } else {

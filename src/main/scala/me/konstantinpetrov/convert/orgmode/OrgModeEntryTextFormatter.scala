@@ -40,21 +40,21 @@ class OrgModeEntryTextFormatter(level: Int = 4,
     lines.toString()
   }
 
-  def formatTags(entry: Entry): String = {
+  private def formatTags(entry: Entry): String = {
     entry.tags.size match {
       case 0 => ""
       case _ => entry.tags.mkString(" :", ":", ":")
     }
   }
 
-  def levelString(): String = {
+  private def levelString(): String = {
     val result = new StringBuilder()
     for (_ <- 0 until level) result.append("*")
     result.append(" ")
     result.mkString
   }
 
-  def calculateMaxWidth(firstLine: Boolean, tags: String, level: Int): Int = {
+  private def calculateMaxWidth(firstLine: Boolean, tags: String, level: Int): Int = {
     if (firstLine) {
       maxWidth - level - 1 - tags.length
     } else {
@@ -62,7 +62,7 @@ class OrgModeEntryTextFormatter(level: Int = 4,
     }
   }
 
-  def spaces(lineLength: Int, tagsLength: Int): String = {
+  private def spaces(lineLength: Int, tagsLength: Int): String = {
     if (tagsLength == 0) return ""
 
     val spaces = new StringBuilder
