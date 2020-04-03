@@ -1,4 +1,4 @@
 package me.konstantinpetrov.convert.orgmode
 
-class OrgModeWeatherFormatter {
+class OrgModeWeatherFormatter extends TextFormatter {
 }

@@ -4,8 +4,8 @@ import me.konstantinpetrov.convert.model.Entry
 
 class OrgModeEntryTextFormatter(level: Int = 4,
                                 maxWidth: Int = 80,
-                                wordWrap: Boolean = true) {
-  def format(entry: Entry): String = {
+                                wordWrap: Boolean = true) extends TextFormatter {
+  override def format(entry: Entry): String = {
     val tags = formatTags(entry)
 
     var firstLine = true
@@ -26,7 +26,7 @@ class OrgModeEntryTextFormatter(level: Int = 4,
         }
         lines.append(entry.text.substring(lastNewLinePosition, candidatePosition + 1).trim)
         if (firstLine) {
-          lines.append(spaces(lines.size, tags.size))
+          lines.append(spaces(lines.size, tags.length))
           lines.append(tags)
         }
         lines.append('\n')
@@ -34,10 +34,18 @@ class OrgModeEntryTextFormatter(level: Int = 4,
         lastNewLinePosition = candidatePosition
       }
       if (i == entry.text.length - 1) {
+        if (firstLine) {
+          lines.append(levelString())
+        }
         lines.append(entry.text.substring(lastNewLinePosition, entry.text.length).trim)
+        if (firstLine) {
+          lines.append(spaces(lines.size, tags.length))
+          lines.append(tags)
+        }
+        firstLine = false
       }
     }
-    lines.toString()
+    lines.append("\n").toString()
   }
 
   private def formatTags(entry: Entry): String = {

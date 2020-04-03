@@ -18,7 +18,7 @@ private class OrgModeDateFormatterTest extends FunSpec {
         modifiedDate = ZonedDateTime.now,
         timeZone = TimeZone.getTimeZone(ZoneId.systemDefault())))
 
-      assert(result == "  Entered on [2020-04-03 12:18]\n")
+      assert(result == "  Entered on [2020-04-03 Fri 12:18]\n")
     }
   }
 }
