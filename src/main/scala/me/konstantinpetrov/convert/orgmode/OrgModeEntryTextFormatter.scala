@@ -12,8 +12,11 @@ class OrgModeEntryTextFormatter(level: Int = 4,
     var candidatePosition = 0
     var lastNewLinePosition = 0
     val lines = new StringBuilder
-    for (i <- 0 until entry.text.length) {
-      val candidate = entry.text.charAt(i)
+    val text = entry.text.replace("\\", "")
+      .replace("\\.", ".")
+      .replace("\n", " ")
+    for (i <- 0 until text.length) {
+      val candidate = text.charAt(i)
       if (candidate == ' ' ||
         candidate == '.' ||
         candidate == ',') {
@@ -24,7 +27,7 @@ class OrgModeEntryTextFormatter(level: Int = 4,
         if (firstLine) {
           lines.append(levelString())
         }
-        lines.append(entry.text.substring(lastNewLinePosition, candidatePosition + 1).trim)
+        lines.append(text.substring(lastNewLinePosition, candidatePosition + 1).trim)
         if (firstLine) {
           lines.append(spaces(lines.size, tags.length))
           lines.append(tags)
@@ -33,11 +36,11 @@ class OrgModeEntryTextFormatter(level: Int = 4,
         firstLine = false
         lastNewLinePosition = candidatePosition
       }
-      if (i == entry.text.length - 1) {
+      if (i == text.length - 1) {
         if (firstLine) {
           lines.append(levelString())
         }
-        lines.append(entry.text.substring(lastNewLinePosition, entry.text.length).trim)
+        lines.append(text.substring(lastNewLinePosition, text.length).trim)
         if (firstLine) {
           lines.append(spaces(lines.size, tags.length))
           lines.append(tags)
