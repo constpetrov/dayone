@@ -1,8 +1,6 @@
 package me.konstantinpetrov.convert.orgmode
 
-import java.time.format.DateTimeFormatter
-
-case class OrgModeFormatOptions(dateTimeFormatter: DateTimeFormatter,
+case class OrgModeFormatOptions(dateTimeFormatter: OrgModeDateFormatter,
                                 weatherFormatter: OrgModeWeatherFormatter,
                                 locationFormatter: OrgModeLocationFormatter,
                                 entryTextFormatter: OrgModeEntryTextFormatter) {
