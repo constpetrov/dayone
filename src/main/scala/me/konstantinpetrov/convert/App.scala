@@ -22,7 +22,7 @@ object App {
     val parser = new JsonParser
     val entries = parser.parse(new File(inputFileName))
 
-    val writer = new OrgModeWriter(List(OrgModeField.HEADER_DATE, OrgModeField.DATE))
+    val writer = new OrgModeWriter(List(OrgModeField.HEADER_DATE, OrgModeField.DATE, OrgModeField.LOCATION, OrgModeField.WEATHER))
     writer.write(new File(outputFileName), entries)
   }
 

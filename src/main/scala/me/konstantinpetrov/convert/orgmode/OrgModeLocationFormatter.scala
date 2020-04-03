@@ -3,7 +3,7 @@ package me.konstantinpetrov.convert.orgmode
 import me.konstantinpetrov.convert.model.LocationField._
 import me.konstantinpetrov.convert.model.{Entry, Location}
 
-class OrgModeLocationFormatter(prefix: String = "  Taken at ", order: List[LocationField] = List(COUNTRY, PLACE),
+class OrgModeLocationFormatter(prefix: String = "  Taken at ", order: List[LocationField] = List(COUNTRY, LOCALITY, PLACE),
                                itemSeparator: String = ", ", writeUnknowns: Boolean = false) extends TextFormatter {
 
   private def formatLocation(location: Location): String = {
