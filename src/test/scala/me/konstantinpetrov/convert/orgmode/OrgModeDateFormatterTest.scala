@@ -3,8 +3,7 @@ package me.konstantinpetrov.convert.orgmode
 import java.time.{ZoneId, ZonedDateTime}
 import java.util.TimeZone
 
-import me.konstantinpetrov.convert.model.LocationField._
-import me.konstantinpetrov.convert.model.{Coordinates, Entry, Location, Region}
+import me.konstantinpetrov.convert.model.Entry
 import org.scalatest.FunSpec
 
 private class OrgModeDateFormatterTest extends FunSpec {
