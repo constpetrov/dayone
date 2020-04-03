@@ -25,7 +25,31 @@ private class OrgModeLocationFormatterTest extends FunSpec {
         modifiedDate = ZonedDateTime.now,
         timeZone = TimeZone.getTimeZone(ZoneId.systemDefault())))
 
-      assert(result == "Taken at Country, Place name")
+      assert(result == "Taken at Country, Place name\n")
+    }
+
+    it("should not write unknown location by default") {
+      val subject = new OrgModeLocationFormatter("Taken at ", List(COUNTRY, PLACE))
+      val result = subject.format(Entry(
+        location = None,
+        text = "",
+        creationDate = ZonedDateTime.now,
+        modifiedDate = ZonedDateTime.now,
+        timeZone = TimeZone.getTimeZone(ZoneId.systemDefault())))
+
+      assert(result == "")
+    }
+
+    it("should write unknown location if asked to") {
+      val subject = new OrgModeLocationFormatter(prefix = "Taken at ", List(COUNTRY, PLACE), writeUnknowns = true)
+      val result = subject.format(Entry(
+        location = None,
+        text = "",
+        creationDate = ZonedDateTime.now,
+        modifiedDate = ZonedDateTime.now,
+        timeZone = TimeZone.getTimeZone(ZoneId.systemDefault())))
+
+      assert(result == "Taken at unknown location\n")
     }
   }
 }
