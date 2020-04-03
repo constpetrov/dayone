@@ -28,6 +28,20 @@ class OrgModeEntryTextFormatter(level: Int = 4,
     }
     lines.toString()
   }
+
+  def formatTags(entry: Entry): String = {
+    entry.tags.size match {
+      case 0 => ""
+      case _ => entry.tags.mkString(":", ":", ":")
+    }
+  }
+
+  def levelString(): String = {
+    val result = new StringBuilder
+    0 until level foreach result.append("*")
+    result.append(" ")
+    result.mkString
+  }
 }
 
 // **** Coronavirus                        :Аня:Ева:здоровье:я:работа:Голландия:
