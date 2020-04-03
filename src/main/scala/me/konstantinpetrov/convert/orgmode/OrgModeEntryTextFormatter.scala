@@ -14,12 +14,11 @@ class OrgModeEntryTextFormatter(maxWidth: Int = 50, wordWrap: Boolean = true) {
         candidate == ',') {
         candidatePosition = i
       }
-      if (i - lastNewLinePosition >= maxWidth) {
-        if (candidatePosition > lastNewLinePosition) {
-          lines.append(entry.text.substring(lastNewLinePosition, candidatePosition + 1).trim)
-          lines.append('\n')
-          lastNewLinePosition = candidatePosition
-        }
+      if (i - lastNewLinePosition >= maxWidth
+        && candidatePosition > lastNewLinePosition) {
+        lines.append(entry.text.substring(lastNewLinePosition, candidatePosition + 1).trim)
+        lines.append('\n')
+        lastNewLinePosition = candidatePosition
       }
       if (i == entry.text.length - 1) {
         lines.append(entry.text.substring(lastNewLinePosition, entry.text.length).trim)
@@ -28,3 +27,5 @@ class OrgModeEntryTextFormatter(maxWidth: Int = 50, wordWrap: Boolean = true) {
     lines.toString()
   }
 }
+
+// **** Coronavirus                        :Аня:Ева:здоровье:я:работа:Голландия:
