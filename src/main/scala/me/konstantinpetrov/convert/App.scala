@@ -9,8 +9,20 @@ import me.konstantinpetrov.convert.orgmode.{OrgModeField, OrgModeWriter}
  * @author ${user.name}
  */
 object App {
-  
-  def main(args : Array[String]) {
+  /* todo
+  I want to have some more arguments, such as:
+  - input and output file names
+    -i, -o
+  - entry fields and their order for all types
+    -f hdlw
+  - date and time formats for all date parts
+    -y "yyyy"
+    -m "yyyy-MM EEE"
+    -D "yyyy-MM-dd eee"
+    -e "  Entered on [yyyy-MM-dd eee HH:mm]"
+  - tags inclusion, composition and separator
+   */
+  def main(args: Array[String]) {
     if (args.length < 2) {
       println(
         """
