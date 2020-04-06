@@ -28,6 +28,7 @@ object App {
         """
           |For use, set first parameter to be input file name, and
           |second parameter to be output file name.""".stripMargin)
+      System.exit(1)
     }
     val inputFileName = args(0)
     val outputFileName = args(1)
