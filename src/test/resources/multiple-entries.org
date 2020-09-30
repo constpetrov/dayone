@@ -1,0 +1,18 @@
+**** Header :tag3:
+text text, line of text
+  Entered on [2016-01-25 Mon 21:05]
+*** 2016-01-26 Tuesday
+**** Longer header :tag4:
+Just one more line of text
+  Entered on [2016-01-26 Tue 15:05]
+** 2016-03 March
+*** 2016-03-01 Tuesday
+**** Line of heading :tag:tag2:tag3:tag4:
+and text,
+text, text,
+text, a bit more of text.
+  Entered on [2016-03-01 Tue 12:51]
+*** 2016-03-18 Friday
+**** Another header :another_tag:
+and another entry.
+  Entered on [2016-03-18 Fri 15:08]

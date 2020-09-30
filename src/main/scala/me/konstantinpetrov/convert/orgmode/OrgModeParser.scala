@@ -15,7 +15,7 @@ class OrgModeParser {
   val monthHeaderPattern: Regex = """\*{2} [\d]{4}-([\d]{2}).*""".r
   val dayHeaderPattern: Regex = """\*{3} [\d]{4}-[\d]{2}-([\d]{2}).*""".r
   val entryHeaderPattern: Regex = """\*{4} (.*)""".r
-  val entryExactDatePattern: Regex = """.*Entered on \[(.*)\]""".r
+  val entryExactDatePattern: Regex = """.*Entered on \[([\d]{4})-([\d]{2})-([\d]{2}) [\w]{3} ([\d]{2}):([\d]{2})\]""".r
 
   def parse(input: File): List[Entry] = {
     val source = scala.io.Source.fromFile(input)
@@ -53,12 +53,14 @@ class OrgModeParser {
         case monthHeaderPattern(value: String) => month = value.toInt
         case dayHeaderPattern(value: String) => day = value.toInt
         case entryHeaderPattern(value: String) => entryHeaderWithTags = value
-        case entryExactDatePattern(value: String) => {
+        case entryExactDatePattern(year, month, day, hour, minute) =>
           val tags = getTagsFromHeader(entryHeaderWithTags)
           val text = createTextFromHeaderAndLines(entryHeaderWithTags, linesList.toList)
-          val local = Entry(text, tags, TimeZone.getTimeZone(ZoneId.systemDefault()), ZonedDateTime.now(), ZonedDateTime.now(), None, None)
+          val id = ZoneId.systemDefault()
+          val dateTime = ZonedDateTime.of(year.toInt, month.toInt, day.toInt, hour.toInt, minute.toInt, 0, 0, id)
+          val local = Entry(text, tags, TimeZone.getTimeZone(id), dateTime, dateTime, None, None)
           entries += local
-        }
+          linesList.clear()
         case _ => linesList += line
       }
 
