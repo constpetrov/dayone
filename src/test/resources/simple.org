@@ -1,0 +1,7 @@
+* 2016
+** 2016-01 January
+*** 2016-01-09 Saturday
+**** Header text, not quite long. :tag_1:Tag_capital:t:
+some entry text, several lines is
+better than one.
+  Entered on [2016-01-09 Sat 21:11]
