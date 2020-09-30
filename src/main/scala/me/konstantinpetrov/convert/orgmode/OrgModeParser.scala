@@ -25,7 +25,7 @@ class OrgModeParser {
         case yearHeaderPattern(value: String) => year = value.toInt //todo most probably this is wrong
         case monthHeaderPattern(value: String) => month = value.toInt//todo definitely wrong
         case dayHeaderPattern(value: String) => day = value.toInt//todo definitely wrong
-        case entryHeaderPattern(value: String) => entryHeaderWithTags = value
+        case entryHeaderPattern(value: String) => entryHeaderWithTags = value // todo: one entry has ended, and another has started.
       }
 
     }
