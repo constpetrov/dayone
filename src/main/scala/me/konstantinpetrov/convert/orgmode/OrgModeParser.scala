@@ -8,9 +8,9 @@ import scala.util.matching.Regex
 
 class OrgModeParser {
 
-  val yearHeaderPattern: Regex = """\* (.*)""".r
-  val monthHeaderPattern: Regex = """\*{2} (.*)""".r
-  val dayHeaderPattern: Regex = """\*{3} (.*)""".r
+  val yearHeaderPattern: Regex = """\* ([\d]{4})""".r
+  val monthHeaderPattern: Regex = """\*{2} [\d]{4}-([\d]{2}).*""".r
+  val dayHeaderPattern: Regex = """\*{3} [\d]{4}-[\d]{2}-([\d]{2}).*""".r
   val entryHeaderPattern: Regex = """\*{4} (.*)""".r
 
   def parse(input: File): List[Entry] = {
