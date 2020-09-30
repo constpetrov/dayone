@@ -23,11 +23,19 @@ class OrgModeParser {
   }
 
   private def getTagsFromHeader(entryHeaderWithTags: String) = {
-    Some(Seq.empty[String]) //todo
+    Some(entryHeaderWithTags.split(":").toList.tail)
   }
 
   private def createTextFromHeaderAndLines(entryHeaderWithTags: String, linesList: List[String]) = {
-    "" //todo
+    val text = StringBuilder.newBuilder.append(entryHeaderWithTags.substring(0, entryHeaderWithTags.indexOf(":")))
+    linesList.foreach(line => {
+      if (text.endsWith(" ")) {
+        text.append(line)
+      } else {
+        text.append(" ").append(line)
+      }
+    })
+    text.toString()
   }
 
   private def parseLines(lines: Iterator[String]) = {
